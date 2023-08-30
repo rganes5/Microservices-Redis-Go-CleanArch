@@ -288,7 +288,7 @@ var SwaggerInfo = &swag.Spec{
 	BasePath:         "",
 	Schemes:          []string{},
 	Title:            "X-TENTIONCREW",
-	Description:      "MICROSERVICE API built using Go, PSQL, REST API following Clean Architecture.",
+	Description:      "MICROSERVICE API BUILD USING GOLANG, REDIS, POSTGRESSQL, REST API following Clean Architecture.",
 	InfoInstanceName: "swagger",
 	SwaggerTemplate:  docTemplate,
 	LeftDelim:        "{{",

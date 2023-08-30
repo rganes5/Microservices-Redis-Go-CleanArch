@@ -42,7 +42,8 @@ definitions:
 host: localhost:3000
 info:
   contact: {}
-  description: MICROSERVICE API built using Go, PSQL, REST API following Clean Architecture.
+  description: MICROSERVICE API BUILD USING GOLANG, REDIS, POSTGRESSQL, REST API following
+    Clean Architecture.
   title: X-TENTIONCREW
   version: "2.0"
 paths:

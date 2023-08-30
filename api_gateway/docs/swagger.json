@@ -1,7 +1,7 @@
 {
     "swagger": "2.0",
     "info": {
-        "description": "MICROSERVICE API built using Go, PSQL, REST API following Clean Architecture.",
+        "description": "MICROSERVICE API BUILD USING GOLANG, REDIS, POSTGRESSQL, REST API following Clean Architecture.",
         "title": "X-TENTIONCREW",
         "contact": {},
         "version": "2.0"

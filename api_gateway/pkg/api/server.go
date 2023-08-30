@@ -1,10 +1,15 @@
 package api
 
 import (
+	_ "X-TENTIONCREW/api_gateway/docs"
 	"X-TENTIONCREW/api_gateway/pkg/api/handlers"
 	"X-TENTIONCREW/api_gateway/pkg/api/routes"
+
 	"X-TENTIONCREW/api_gateway/pkg/config"
 	"net/http"
+
+	swaggerfiles "github.com/swaggo/files"
+	ginSwagger "github.com/swaggo/gin-swagger"
 
 	"github.com/gin-gonic/gin"
 )
@@ -17,6 +22,7 @@ type Server struct {
 func NewServerHTTP(c *config.Config, authHandler handlers.AuthHandler) (*Server, error) {
 	engine := gin.New()
 	engine.Use(gin.Logger())
+	engine.GET("/swagger/*any", ginSwagger.WrapHandler(swaggerfiles.Handler))
 	routes.RegisterUserRoutes(engine.Group("/"), authHandler)
 	engine.NoRoute(func(ctx *gin.Context) {
 		ctx.JSON(http.StatusNotFound, gin.H{

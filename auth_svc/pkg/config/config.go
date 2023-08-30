@@ -7,8 +7,11 @@ import (
 )
 
 type Config struct {
-	Port  string `mapstructure:"PORT"`
-	DBUrl string `mapstructure:"DB_URL"`
+	Port      string `mapstructure:"PORT"`
+	DBUrl     string `mapstructure:"DB_URL"`
+	RedisHost string `mapstructure:"REDIS_HOST"`
+	RedisPort string `mapstructure:"REDIS_PORT"`
+	RedisDB   int    `mapstructure:"REDIS_DB"`
 }
 
 func LoadConfig() (config *Config, err error) {

@@ -19,11 +19,11 @@ type Server struct {
 	Port   string
 }
 
-func NewServerHTTP(c *config.Config, authHandler handlers.AuthHandler) (*Server, error) {
+func NewServerHTTP(c *config.Config, authHandler handlers.AuthHandler, methodHandler handlers.MethodHandler) (*Server, error) {
 	engine := gin.New()
 	engine.Use(gin.Logger())
 	engine.GET("/swagger/*any", ginSwagger.WrapHandler(swaggerfiles.Handler))
-	routes.RegisterUserRoutes(engine.Group("/"), authHandler)
+	routes.RegisterUserRoutes(engine.Group("/"), authHandler, methodHandler)
 	engine.NoRoute(func(ctx *gin.Context) {
 		ctx.JSON(http.StatusNotFound, gin.H{
 			"statuscode": 404,

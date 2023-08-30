@@ -9,6 +9,7 @@ import (
 type Config struct {
 	Port       string `mapstructure:"PORT"`
 	AuthSvcUrl string `mapstructure:"AUTH_SVC_URL"`
+	MethSvcUrl string `mapstructure:"METH_SVC_URL"`
 }
 
 func LoadConfig() (config *Config, err error) {

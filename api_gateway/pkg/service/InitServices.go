@@ -9,7 +9,8 @@ import (
 )
 
 type Clients struct {
-	Authcli pb.AuthServiceClient
+	Authcli   pb.AuthServiceClient
+	MethodCli pb.MethodServiceClient
 }
 
 func InitClient(c *config.Config) (Clients, error) {
@@ -17,8 +18,14 @@ func InitClient(c *config.Config) (Clients, error) {
 	if autherr != nil {
 		return Clients{}, autherr
 	}
+	methodcc, methoderr := grpc.Dial(c.MethSvcUrl, grpc.WithTransportCredentials(insecure.NewCredentials()))
+	if methoderr != nil {
+		return Clients{}, methoderr
+	}
 	authclient := pb.NewAuthServiceClient(authcc)
+	methodclient := pb.NewMethodServiceClient(methodcc)
 	return Clients{
-		Authcli: authclient,
+		Authcli:   authclient,
+		MethodCli: methodclient,
 	}, nil
 }

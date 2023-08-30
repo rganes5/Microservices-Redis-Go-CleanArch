@@ -8,7 +8,7 @@ import (
 
 //	@title			X-TENTIONCREW
 //	@version		2.0
-//	@description	MICROSERVICE API built using Go, PSQL, REST API following Clean Architecture.
+//	@description	MICROSERVICE API BUILD USING GOLANG, REDIS, POSTGRESSQL, REST API following Clean Architecture.
 
 //	@contact
 // name: Ganesh

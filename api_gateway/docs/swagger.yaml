@@ -1,0 +1,183 @@
+definitions:
+  utils.Response:
+    properties:
+      response:
+        type: string
+    type: object
+  utils.SignUpBody:
+    properties:
+      email:
+        type: string
+      firstname:
+        type: string
+      lastname:
+        type: string
+      phone:
+        type: string
+    required:
+    - email
+    - firstname
+    - lastname
+    - phone
+    type: object
+  utils.UpdateBody:
+    properties:
+      email:
+        type: string
+      firstname:
+        type: string
+      id:
+        type: integer
+      lastname:
+        type: string
+      phone:
+        type: string
+    required:
+    - email
+    - firstname
+    - id
+    - lastname
+    - phone
+    type: object
+host: localhost:3000
+info:
+  contact: {}
+  description: MICROSERVICE API built using Go, PSQL, REST API following Clean Architecture.
+  title: X-TENTIONCREW
+  version: "2.0"
+paths:
+  /user/delete/{user_id}:
+    delete:
+      consumes:
+      - application/json
+      description: DELETING A USER BASED ON ID
+      operationId: DELETE-USER
+      parameters:
+      - description: Enter the user id that you would like to delete
+        in: path
+        name: user_id
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/utils.Response'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/utils.Response'
+        "401":
+          description: Unauthorized
+          schema:
+            $ref: '#/definitions/utils.Response'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/utils.Response'
+      summary: API FOR DELETING A USER
+      tags:
+      - USER
+  /user/getuser/{user_id}:
+    get:
+      consumes:
+      - application/json
+      description: LISTING USER BASED ON ID
+      operationId: LIST-USER
+      parameters:
+      - description: Enter the user id
+        in: path
+        name: user_id
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/utils.Response'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/utils.Response'
+        "401":
+          description: Unauthorized
+          schema:
+            $ref: '#/definitions/utils.Response'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/utils.Response'
+      summary: API FOR LISTING USER BASED ON ID
+      tags:
+      - USER
+  /user/register:
+    post:
+      consumes:
+      - application/json
+      description: CREATE A NEW USER WITH REQUIRED DETAILS
+      operationId: SIGNUP-USER
+      parameters:
+      - description: Enter the user details
+        in: body
+        name: user_details
+        required: true
+        schema:
+          $ref: '#/definitions/utils.SignUpBody'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/utils.Response'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/utils.Response'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/utils.Response'
+      summary: API FOR NEW USER SIGN UP
+      tags:
+      - USER
+  /user/update:
+    patch:
+      consumes:
+      - application/json
+      description: UPDATING USER DETAILS WITH ID
+      operationId: UPDATE-USER
+      parameters:
+      - description: Enter the user details
+        in: body
+        name: user_details
+        required: true
+        schema:
+          $ref: '#/definitions/utils.UpdateBody'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/utils.Response'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/utils.Response'
+        "401":
+          description: Unauthorized
+          schema:
+            $ref: '#/definitions/utils.Response'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/utils.Response'
+      summary: API FOR UPDATING USER
+      tags:
+      - USER
+swagger: "2.0"

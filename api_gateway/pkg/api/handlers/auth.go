@@ -20,6 +20,19 @@ func NewUserHandler(client client.AuthClient) AuthHandler {
 	}
 }
 
+// USER SIGN-UP
+//
+//	@Summary		API FOR NEW USER SIGN UP
+//	@ID				SIGNUP-USER
+//	@Description	CREATE A NEW USER WITH REQUIRED DETAILS
+//	@Tags			USER
+//	@Accept			json
+//	@Produce		json
+//	@Param			user_details	body		utils.SignUpBody true "Enter the user details"
+//	@Success		200				{object}	utils.Response
+//	@Failure		400				{object}	utils.Response
+//	@Failure		500				{object}	utils.Response
+//	@Router			/user/register [post]
 func (cr *AuthHandler) Register(c *gin.Context) {
 	var body utils.SignUpBody
 	if err := c.BindJSON(&body); err != nil {
@@ -40,6 +53,19 @@ func (cr *AuthHandler) Register(c *gin.Context) {
 	})
 }
 
+// LIST USER BASED ON CATEGORY
+// @Summary API FOR LISTING USER BASED ON ID
+// @ID LIST-USER
+// @Description LISTING USER BASED ON ID
+// @Tags USER
+// @Accept json
+// @Produce json
+// @Param user_id path string true "Enter the user id"
+// @Success 200 {object} utils.Response
+// @Failure 401 {object} utils.Response
+// @Failure 400 {object} utils.Response
+// @Failure 500 {object} utils.Response
+// @Router /user/getuser/{user_id} [get]
 func (cr *AuthHandler) GetUser(c *gin.Context) {
 	id, _ := strconv.ParseInt(c.Param("user_id"), 10, 32)
 	userId := uint32(id)
@@ -56,6 +82,19 @@ func (cr *AuthHandler) GetUser(c *gin.Context) {
 	})
 }
 
+// UPDATE USER
+// @Summary API FOR UPDATING USER
+// @ID UPDATE-USER
+// @Description UPDATING USER DETAILS WITH ID
+// @Tags USER
+// @Accept json
+// @Produce json
+// @Param user_details body utils.UpdateBody true "Enter the user details"
+// @Success 200 {object} utils.Response
+// @Failure 401 {object} utils.Response
+// @Failure 400 {object} utils.Response
+// @Failure 500 {object} utils.Response
+// @Router /user/update [patch]
 func (cr *AuthHandler) UpdateUser(c *gin.Context) {
 	var body utils.UpdateBody
 	if err := c.BindJSON(&body); err != nil {
@@ -80,6 +119,19 @@ func (cr *AuthHandler) UpdateUser(c *gin.Context) {
 
 }
 
+// DELETE USER
+// @Summary API FOR DELETING A USER
+// @ID DELETE-USER
+// @Description DELETING A USER BASED ON ID
+// @Tags USER
+// @Accept json
+// @Produce json
+// @Param user_id path string true "Enter the user id that you would like to delete"
+// @Success 200 {object} utils.Response
+// @Failure 401 {object} utils.Response
+// @Failure 400 {object} utils.Response
+// @Failure 500 {object} utils.Response
+// @Router /user/delete/{user_id} [delete]
 func (cr *AuthHandler) DeleteUser(c *gin.Context) {
 	id, _ := strconv.ParseInt(c.Param("user_id"), 10, 32)
 	userId := uint32(id)

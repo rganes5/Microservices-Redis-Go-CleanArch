@@ -50,6 +50,7 @@ func (cr *AuthHandler) Register(c *gin.Context) {
 	}
 	c.JSON(int(res.Status), gin.H{
 		"response": &res.Response,
+		"id":       &res.ID,
 	})
 }
 

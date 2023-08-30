@@ -23,7 +23,9 @@ func InitializeAPI(c *config.Config) (*api.Server, error) {
 	}
 	authClient := client.NewauthClient(clients)
 	authHandler := handlers.NewUserHandler(authClient)
-	server, err := api.NewServerHTTP(c, authHandler)
+	methodClient := client.NewMethodClient(clients)
+	methodHandler := handlers.NewMethodHandler(methodClient)
+	server, err := api.NewServerHTTP(c, authHandler, methodHandler)
 	if err != nil {
 		return nil, err
 	}

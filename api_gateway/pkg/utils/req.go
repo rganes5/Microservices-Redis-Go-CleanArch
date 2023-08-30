@@ -8,7 +8,7 @@ type SignUpBody struct {
 }
 
 type UpdateBody struct {
-	Id        uint32 `json:"id" binding:"required"`
+	Id        int32  `json:"id" binding:"required"`
 	FirstName string `json:"firstname" binding:"required"`
 	LastName  string `json:"lastname" binding:"required"`
 	Email     string `json:"email" binding:"required"`
@@ -17,4 +17,9 @@ type UpdateBody struct {
 
 type Response struct {
 	Response string
+}
+
+type MethodsRequest struct {
+	Method   int32 `json:"method"`
+	WaitTime int32 `json:"waitTime"`
 }

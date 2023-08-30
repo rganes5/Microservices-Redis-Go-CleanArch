@@ -1,4 +1,11 @@
 definitions:
+  utils.MethodsRequest:
+    properties:
+      method:
+        type: integer
+      waitTime:
+        type: integer
+    type: object
   utils.Response:
     properties:
       response:
@@ -115,6 +122,41 @@ paths:
       summary: API FOR LISTING USER BASED ON ID
       tags:
       - USER
+  /user/method:
+    post:
+      consumes:
+      - application/json
+      description: API FOR METHOD DEMONSTRATION USING CONCURRENCY AND PARALLELISM
+      operationId: METHODS
+      parameters:
+      - description: Enter the method number and waittime
+        in: body
+        name: MethodsRequest
+        required: true
+        schema:
+          $ref: '#/definitions/utils.MethodsRequest'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/utils.Response'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/utils.Response'
+        "401":
+          description: Unauthorized
+          schema:
+            $ref: '#/definitions/utils.Response'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/utils.Response'
+      summary: API FOR METHOD DEMONSTRATION USING CONCURRENCY AND PARALLELISM
+      tags:
+      - METHOD
   /user/register:
     post:
       consumes:

@@ -14,6 +14,7 @@ import (
 
 func InitializeServe(c *config.Config) (*api.Server, error) {
 	wire.Build(db.Initdb,
+		db.InitRedis,
 		repository.NewauthRepo,
 		service.NewAuthService,
 		api.NewGrpcServe)

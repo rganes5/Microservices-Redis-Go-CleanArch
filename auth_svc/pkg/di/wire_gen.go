@@ -21,7 +21,11 @@ func InitializeServe(c *config.Config) (*api.Server, error) {
 	if err != nil {
 		return nil, err
 	}
-	authRepo := repository.NewauthRepo(gormDB)
+	client, err := db.InitRedis(c)
+	if err != nil {
+		return nil, err
+	}
+	authRepo := repository.NewauthRepo(gormDB, client)
 	authServiceServer := service.NewAuthService(authRepo)
 	server, err := api.NewGrpcServe(c, authServiceServer)
 	if err != nil {

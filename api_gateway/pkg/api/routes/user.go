@@ -10,5 +10,12 @@ func RegisterUserRoutes(api *gin.RouterGroup, authHandler handlers.AuthHandler) 
 	register := api.Group("/user")
 	{
 		register.POST("/register", authHandler.Register)
+
+	}
+	operations := api.Group("/user")
+	{
+		operations.GET("/getuser/:user_id", authHandler.GetUser)
+		operations.PATCH("/update", authHandler.UpdateUser)
+		operations.DELETE("/delete/:user_id", authHandler.DeleteUser)
 	}
 }

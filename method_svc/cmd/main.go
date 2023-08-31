@@ -1,8 +1,8 @@
 package main
 
 import (
-	"X-TENTIONCREW/auth_svc/pkg/config"
-	"X-TENTIONCREW/auth_svc/pkg/di"
+	"X-TENTIONCREW/method_svc/pkg/config"
+	"X-TENTIONCREW/method_svc/pkg/di"
 	"log"
 )
 

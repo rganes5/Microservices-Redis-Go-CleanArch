@@ -12,8 +12,10 @@ import (
 )
 
 func InitializeServe(c *config.Config) (*api.Server, error) {
-	wire.Build(service.NewMethodService,
+	wire.Build(
+		client.InitAuthClient,
 		client.NewAuthClient,
+		service.NewMethodService,
 		api.NewGrpcServe)
 	return &api.Server{}, nil
 }

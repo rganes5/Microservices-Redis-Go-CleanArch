@@ -1,7 +1,7 @@
 package service
 
 import (
-	"X-TENTIONCREW/method_svc/pkg/client"
+	client "X-TENTIONCREW/method_svc/pkg/client/interfaces"
 	"X-TENTIONCREW/method_svc/pkg/pb"
 	"context"
 	"errors"
@@ -21,6 +21,7 @@ func NewMethodService(AuthClient client.AuthClient) pb.MethodServiceServer {
 		AuthClient: AuthClient,
 	}
 }
+
 func (c *MethodService) Method(ctx context.Context, req *pb.MethodRequest) (*pb.MethodResponse, error) {
 	switch req.Method {
 	case 1:

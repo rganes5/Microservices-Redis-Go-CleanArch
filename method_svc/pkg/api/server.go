@@ -1,8 +1,8 @@
 package api
 
 import (
-	"X-TENTIONCREW/auth_svc/pkg/config"
-	"X-TENTIONCREW/auth_svc/pkg/pb"
+	"X-TENTIONCREW/method_svc/pkg/config"
+	"X-TENTIONCREW/method_svc/pkg/pb"
 	"fmt"
 	"net"
 
@@ -16,9 +16,9 @@ type Server struct {
 	Port string
 }
 
-func NewGrpcServe(c *config.Config, service pb.AuthServiceServer) (*Server, error) {
+func NewGrpcServe(c *config.Config, service pb.MethodServiceServer) (*Server, error) {
 	grpcServer := grpc.NewServer()
-	pb.RegisterAuthServiceServer(grpcServer, service)
+	pb.RegisterMethodServiceServer(grpcServer, service)
 	reflection.Register(grpcServer)
 
 	lis, err := net.Listen("tcp", c.Port)
@@ -33,6 +33,6 @@ func NewGrpcServe(c *config.Config, service pb.AuthServiceServer) (*Server, erro
 }
 
 func (s *Server) Start() error {
-	fmt.Println("Authentication service on:", s.Port)
+	fmt.Println("Method service on:", s.Port)
 	return s.Gs.Serve(s.Lis)
 }

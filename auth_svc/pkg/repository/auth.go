@@ -27,6 +27,38 @@ func NewauthRepo(db *gorm.DB, redis *redis.Client) interfaces.AuthRepo {
 
 //WITHOUT REDIS
 
+func (c *authRepo) GetAll(ctx context.Context, req *pb.GetAllRequest) (utils.MethodResponse, error) {
+	var methodResponse utils.MethodResponse
+	fmt.Println(req.Flag)
+	// Query to get the count and all first names
+	queryCount := `SELECT COUNT(*) FROM users`
+	queryFirstNames := `SELECT first_name FROM users`
+
+	// Get the count
+	err := c.DB.Raw(queryCount).Scan(&methodResponse.Count).Error
+	if err != nil {
+		return methodResponse, err
+	}
+
+	// Get all first names
+	rows, err := c.DB.Raw(queryFirstNames).Rows()
+	if err != nil {
+		return methodResponse, err
+	}
+	defer rows.Close()
+
+	for rows.Next() {
+		var firstName string
+		err := rows.Scan(&firstName)
+		if err != nil {
+			return methodResponse, err
+		}
+		methodResponse.FirstNames = append(methodResponse.FirstNames, firstName)
+	}
+
+	return methodResponse, nil
+}
+
 /*
 func (c *authRepo) Register(ctx context.Context, req *pb.RegisterRequest) (int32, error) {
 	user := domain.User{

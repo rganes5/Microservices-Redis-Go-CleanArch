@@ -7,3 +7,8 @@ type Response struct {
 	Email     string `json:"email"`
 	Phone     string `json:"phone"`
 }
+
+type MethodResponse struct {
+	Count      int32    `json:"count"`
+	FirstNames []string `json:"firstnames"`
+}

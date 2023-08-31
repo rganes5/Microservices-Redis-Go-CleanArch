@@ -84,3 +84,27 @@ func (cr *authService) Delete(ctx context.Context, req *pb.DeleteRequest) (*pb.D
 		Response: "Successfully deleted",
 	}, nil
 }
+
+func (cr *authService) GetAll(ctx context.Context, req *pb.GetAllRequest) (*pb.GetAllResponse, error) {
+	users, err := cr.Repo.GetAll(context.Background(), req)
+	if err != nil {
+		return &pb.GetAllResponse{
+			Status: http.StatusInternalServerError,
+		}, err
+	}
+
+	// Convert FirstNames slice to []*pb.MethodUser
+	var methodUsers []*pb.MethodUser
+	for _, firstName := range users.FirstNames {
+		methodUser := &pb.MethodUser{
+			FirstName: firstName,
+		}
+		methodUsers = append(methodUsers, methodUser)
+	}
+	return &pb.GetAllResponse{
+		Status:   http.StatusOK,
+		Response: "Success",
+		Count:    users.Count,
+		Users:    methodUsers,
+	}, nil
+}

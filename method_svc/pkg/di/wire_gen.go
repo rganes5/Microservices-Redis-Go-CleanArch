@@ -7,10 +7,10 @@
 package di
 
 import (
-	"X-TENTIONCREW/method_svc/pkg/api"
-	"X-TENTIONCREW/method_svc/pkg/api/service"
-	"X-TENTIONCREW/method_svc/pkg/client"
-	"X-TENTIONCREW/method_svc/pkg/config"
+	"method_svc/pkg/api"
+	"method_svc/pkg/api/service"
+	"method_svc/pkg/client"
+	"method_svc/pkg/config"
 )
 
 // Injectors from wire.go:

@@ -1,8 +1,8 @@
 package handlers
 
 import (
-	client "X-TENTIONCREW/api_gateway/pkg/client/interfaces"
-	"X-TENTIONCREW/api_gateway/pkg/utils"
+	client "api_gateway/pkg/client/interfaces"
+	"api_gateway/pkg/utils"
 	"context"
 	"net/http"
 	"strconv"

@@ -1,8 +1,8 @@
 package interfaces
 
 import (
-	"X-TENTIONCREW/api_gateway/pkg/pb"
-	"X-TENTIONCREW/api_gateway/pkg/utils"
+	"api_gateway/pkg/pb"
+	"api_gateway/pkg/utils"
 	"context"
 )
 

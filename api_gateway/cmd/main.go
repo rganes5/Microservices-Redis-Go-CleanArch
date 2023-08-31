@@ -1,8 +1,8 @@
 package main
 
 import (
-	"X-TENTIONCREW/api_gateway/pkg/config"
-	"X-TENTIONCREW/api_gateway/pkg/di"
+	"api_gateway/pkg/config"
+	"api_gateway/pkg/di"
 	"log"
 )
 

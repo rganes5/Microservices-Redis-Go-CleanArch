@@ -1,9 +1,9 @@
 package api
 
 import (
-	"X-TENTIONCREW/method_svc/pkg/config"
-	"X-TENTIONCREW/method_svc/pkg/pb"
 	"fmt"
+	"method_svc/pkg/config"
+	"method_svc/pkg/pb"
 	"net"
 
 	"google.golang.org/grpc"

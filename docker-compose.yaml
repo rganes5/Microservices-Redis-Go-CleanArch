@@ -1,0 +1,83 @@
+version: '3'
+
+x-name: X-TENTIONCREW
+services:
+  db-postgres:
+    image: postgres:alpine
+    environment:
+      - POSTGRES_USER=${DB_USER}
+      - POSTGRES_PASSWORD=${DB_PASSWORD}
+      - POSTGRES_DB=${DB_NAME}
+    networks:
+      - mynet
+    ports:
+      - 5000:5432
+    volumes:
+      - postgres-db:/var/lib/postgresql/data
+
+  rdb-redis:
+    image: redis
+    networks:
+      - mynet
+    ports:
+      - 5001:6379
+    volumes:
+      - redis-rdb:/data
+
+  microservice1:
+    image: ganesh/x-tentioncrew_microservices_1
+    environment:
+      - PORT=${AUTH_SVC_PORT}
+      - DB_PORT=${DB_PORT}
+      - DB_HOST=${DB_HOST}
+      - DB_USER=${DB_USER}
+      - DB_PASSWORD=${DB_PASSWORD}
+      - DB_NAME=${DB_NAME}
+      - REDIS_ADDRESS=${REDIS_ADDRESS}
+    networks:
+      - mynet
+    ports:
+      - 50051:50051
+    volumes:
+      - ./microservice-1:/usr/src/app
+    depends_on:
+      - db-postgres
+      - rdb-redis
+
+  microservice2:
+    image: ganesh/x-tentioncrew_microservices_2
+    environment:
+      - PORT=${METH_SVC_PORT}
+      - AUTH_SVC=${AUTH_SVC}
+    networks:
+      - mynet
+    ports:
+      - 50052:50052
+    volumes:
+      - ./microservice-2:/usr/src/app
+    depends_on:
+      - microservice1
+
+  api_gateway:
+    image: ganesh/x-tentioncrew_microservices_api-gateway:2.0
+    environment:
+      - PORT=${PORT}
+      - AUTH_SVC=${AUTH_SVC}
+      - METH_SVC=${METH_SVC}
+    networks:
+      - mynet
+    ports:
+      - 3000:3000
+    volumes:
+      - ./api-gateway:/usr/src/app
+    depends_on:
+      - microservice1
+      - microservice2
+
+volumes:
+  postgres-db:
+  redis-rdb:
+
+networks:
+  mynet:
+    driver: bridge

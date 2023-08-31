@@ -1,10 +1,10 @@
 package repository
 
 import (
-	"X-TENTIONCREW/auth_svc/pkg/domain"
-	"X-TENTIONCREW/auth_svc/pkg/pb"
-	"X-TENTIONCREW/auth_svc/pkg/repository/interfaces"
-	"X-TENTIONCREW/auth_svc/pkg/utils"
+	"auth_svc/pkg/domain"
+	"auth_svc/pkg/pb"
+	"auth_svc/pkg/repository/interfaces"
+	"auth_svc/pkg/utils"
 	"context"
 	"fmt"
 	"time"

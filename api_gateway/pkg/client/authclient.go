@@ -1,10 +1,10 @@
 package client
 
 import (
-	"X-TENTIONCREW/api_gateway/pkg/client/interfaces"
-	"X-TENTIONCREW/api_gateway/pkg/pb"
-	"X-TENTIONCREW/api_gateway/pkg/service"
-	"X-TENTIONCREW/api_gateway/pkg/utils"
+	"api_gateway/pkg/client/interfaces"
+	"api_gateway/pkg/pb"
+	"api_gateway/pkg/service"
+	"api_gateway/pkg/utils"
 	"context"
 )
 

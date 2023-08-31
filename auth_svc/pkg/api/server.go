@@ -1,8 +1,8 @@
 package api
 
 import (
-	"X-TENTIONCREW/auth_svc/pkg/config"
-	"X-TENTIONCREW/auth_svc/pkg/pb"
+	"auth_svc/pkg/config"
+	"auth_svc/pkg/pb"
 	"fmt"
 	"net"
 

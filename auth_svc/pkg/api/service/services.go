@@ -1,8 +1,8 @@
 package service
 
 import (
-	"X-TENTIONCREW/auth_svc/pkg/pb"
-	"X-TENTIONCREW/auth_svc/pkg/repository/interfaces"
+	"auth_svc/pkg/pb"
+	"auth_svc/pkg/repository/interfaces"
 	"context"
 	"net/http"
 )

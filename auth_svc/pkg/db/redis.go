@@ -1,8 +1,7 @@
 package db
 
 import (
-	"X-TENTIONCREW/auth_svc/pkg/config"
-	"fmt"
+	"auth_svc/pkg/config"
 	"log"
 
 	"github.com/go-redis/redis/v8"
@@ -11,9 +10,9 @@ import (
 
 func InitRedis(c *config.Config) (*redis.Client, error) {
 	client := redis.NewClient(&redis.Options{
-		Addr:     fmt.Sprintf("%s:%s", c.RedisHost, c.RedisPort),
-		Password: "", // No password
-		DB:       c.RedisDB,
+		Addr:     c.RedisAddress, // Use the new RedisAddress field
+		Password: "",             // No password
+		DB:       0,              // Assuming Redis DB is not used, use your appropriate DB number if applicable
 	})
 
 	// Test the connection

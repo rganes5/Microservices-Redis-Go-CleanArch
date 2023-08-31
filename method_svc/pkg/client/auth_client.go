@@ -1,10 +1,10 @@
 package client
 
 import (
-	"X-TENTIONCREW/method_svc/pkg/client/interfaces"
-	"X-TENTIONCREW/method_svc/pkg/config"
-	"X-TENTIONCREW/method_svc/pkg/pb"
 	"context"
+	"method_svc/pkg/client/interfaces"
+	"method_svc/pkg/config"
+	"method_svc/pkg/pb"
 
 	"google.golang.org/grpc"
 	"google.golang.org/grpc/credentials/insecure"

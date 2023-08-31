@@ -1,7 +1,7 @@
 package routes
 
 import (
-	"X-TENTIONCREW/api_gateway/pkg/api/handlers"
+	"api_gateway/pkg/api/handlers"
 
 	"github.com/gin-gonic/gin"
 )

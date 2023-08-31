@@ -1,11 +1,11 @@
 package api
 
 import (
-	_ "X-TENTIONCREW/api_gateway/docs"
-	"X-TENTIONCREW/api_gateway/pkg/api/handlers"
-	"X-TENTIONCREW/api_gateway/pkg/api/routes"
+	_ "api_gateway/docs"
+	"api_gateway/pkg/api/handlers"
+	"api_gateway/pkg/api/routes"
 
-	"X-TENTIONCREW/api_gateway/pkg/config"
+	"api_gateway/pkg/config"
 	"net/http"
 
 	swaggerfiles "github.com/swaggo/files"

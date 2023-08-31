@@ -7,11 +7,11 @@
 package di
 
 import (
-	"X-TENTIONCREW/auth_svc/pkg/api"
-	"X-TENTIONCREW/auth_svc/pkg/api/service"
-	"X-TENTIONCREW/auth_svc/pkg/config"
-	"X-TENTIONCREW/auth_svc/pkg/db"
-	"X-TENTIONCREW/auth_svc/pkg/repository"
+	"auth_svc/pkg/api"
+	"auth_svc/pkg/api/service"
+	"auth_svc/pkg/config"
+	"auth_svc/pkg/db"
+	"auth_svc/pkg/repository"
 )
 
 // Injectors from wire.go:

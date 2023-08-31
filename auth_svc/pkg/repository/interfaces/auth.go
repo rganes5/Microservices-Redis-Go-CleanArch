@@ -1,8 +1,8 @@
 package interfaces
 
 import (
-	"X-TENTIONCREW/auth_svc/pkg/pb"
-	"X-TENTIONCREW/auth_svc/pkg/utils"
+	"auth_svc/pkg/pb"
+	"auth_svc/pkg/utils"
 	"context"
 )
 

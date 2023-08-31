@@ -1,8 +1,8 @@
 package service
 
 import (
-	"X-TENTIONCREW/api_gateway/pkg/config"
-	"X-TENTIONCREW/api_gateway/pkg/pb"
+	"api_gateway/pkg/config"
+	"api_gateway/pkg/pb"
 
 	"google.golang.org/grpc"
 	"google.golang.org/grpc/credentials/insecure"

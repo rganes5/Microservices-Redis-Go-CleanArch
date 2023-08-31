@@ -7,11 +7,11 @@
 package di
 
 import (
-	"X-TENTIONCREW/api_gateway/pkg/api"
-	"X-TENTIONCREW/api_gateway/pkg/api/handlers"
-	"X-TENTIONCREW/api_gateway/pkg/client"
-	"X-TENTIONCREW/api_gateway/pkg/config"
-	"X-TENTIONCREW/api_gateway/pkg/service"
+	"api_gateway/pkg/api"
+	"api_gateway/pkg/api/handlers"
+	"api_gateway/pkg/client"
+	"api_gateway/pkg/config"
+	"api_gateway/pkg/service"
 )
 
 // Injectors from wire.go:

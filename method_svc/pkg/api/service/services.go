@@ -1,10 +1,10 @@
 package service
 
 import (
-	client "X-TENTIONCREW/method_svc/pkg/client/interfaces"
-	"X-TENTIONCREW/method_svc/pkg/pb"
 	"context"
 	"errors"
+	client "method_svc/pkg/client/interfaces"
+	"method_svc/pkg/pb"
 	"net/http"
 	"sync"
 	"time"

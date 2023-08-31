@@ -1,9 +1,9 @@
 package main
 
 import (
-	"X-TENTIONCREW/method_svc/pkg/config"
-	"X-TENTIONCREW/method_svc/pkg/di"
 	"log"
+	"method_svc/pkg/config"
+	"method_svc/pkg/di"
 )
 
 func main() {

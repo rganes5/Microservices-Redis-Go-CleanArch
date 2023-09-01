@@ -96,20 +96,20 @@ docker-compose up
 ### To See The API Documentation
 1. visit [swagger] ***http://localhost:3000/swagger/index.html***
 
-Environment Variables
-Ensure you have an .env file at the project's root directory with the following variables configured:
-
-PORT=:3000
-AUTH_SVC=microservice1:50051
-METH_SVC=microservice2:50052
-AUTH_SVC_PORT=:50051
-DB_PORT=5432
-DB_HOST=db-postgres
-DB_USER=postgres
-DB_PASSWORD=Libyar
-DB_NAME=auth_svc
-REDIS_ADDRESS=rdb-redis:6379
-METH_SVC_PORT=:50052
+# Set up Environment Variables
+Set up the necessary environment variables in a .env file at the project's root directory. Below are the variables required:
+### PostgreSQL database details
+1. DB_HOST="```your database host name```"
+2. DB_NAME="```your database name```"
+3. DB_USER="```your database user name```"
+4. DB_PASSWORD="```your database owner password```"
+5. DB_PORT="```your database running port number```"
+6. PORT=: 3000
+7. AUTH_SVC=microservice1:50051
+8. METH_SVC=microservice2:50052
+9. AUTH_SVC_PORT=:50051
+10. METH_SVC_PORT=:50052
+11. REDIS_ADDRESS=rdb-redis:6379
 
 ## Extracted Endpoints
 

@@ -12,9 +12,10 @@ The project utilizes the following packages:
 3. [Wire](https://github.com/google/wire): A code generation tool for dependency injection, making it easier to connect components.
 4. [Viper](https://github.com/spf13/viper): A configuration solution for Go applications, supporting various formats and 12-Factor app principles.
 5. [swag](https://github.com/swaggo/swag) with [gin-swagger](https://github.com/swaggo/gin-swagger) and [swaggo files](github.com/swaggo/files): Converts Go annotations to Swagger Documentation 2.0 for API documentation.
-6. Clean Code Architecture: Implemented to achieve separation of concerns and maintainability.
-7. Loose Coupling: Designed for independent development, testing, and deployment of microservices.
-8. GRPC: Employed for inter-microservice communication due to its lightweight and efficient protocol.
+6. [Clean Code Architecture](https://www.freecodecamp.org/news/a-quick-introduction-to-clean-architecture-990c014448d2/): Implemented to achieve separation of concerns and maintainability.
+7. [gRPC](https://grpc.io/): Employed for inter-microservice communication due to its lightweight and efficient protocol.
+8. Loose Coupling: Designed for independent development, testing, and deployment of microservices.
+
 
 
 

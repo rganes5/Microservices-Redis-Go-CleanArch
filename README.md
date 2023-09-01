@@ -3,6 +3,21 @@
 
 Welcome to the Dockerized User Management API project! This project comprises a set of microservices built using the Go programming language. It follows Clean Architecture principles and leverages various packages and libraries to achieve efficient development, clean code, and seamless communication between microservices. Redis is used for caching, and PostgreSQL serves as the database for storing user information. The API is split into three main microservices: an API Gateway and two individual microservices.
 
+### Additional Features and Libraries
+
+
+The project utilizes the following packages:
+1. [GIN](github.com/gin-gonic/gin): A web framework written in Go that combines high performance with an API similar to Martini.
+2. [GORM](https://gorm.io/index.html) with [PostgreSQL](https://gorm.io/docs/connecting_to_the_database.html#PostgreSQL): A powerful ORM library for Go that simplifies database operations.
+3. [Wire](https://github.com/google/wire): A code generation tool for dependency injection, making it easier to connect components.
+4. [Viper](https://github.com/spf13/viper): A configuration solution for Go applications, supporting various formats and 12-Factor app principles.
+5. [swag](https://github.com/swaggo/swag) with [gin-swagger](https://github.com/swaggo/gin-swagger) and [swaggo files](github.com/swaggo/files): Converts Go annotations to Swagger Documentation 2.0 for API documentation.
+6. [Clean Code Architecture]: Implemented to achieve separation of concerns and maintainability.
+7. [Loose Coupling: Designed] for independent development, testing, and deployment of microservices.
+8. [GRPC]: Employed for inter-microservice communication due to its lightweight and efficient protocol.
+
+
+
 ## Microservice 1: CRUD Operations and Cache
 
 - Image: ganeshraveendran/x-tensioncrew-microservice-1:tagname
@@ -11,14 +26,6 @@ Welcome to the Dockerized User Management API project! This project comprises a 
 ### Description
 
 Microservice 1 is responsible for handling CRUD (Create, Read, Update, Delete) operations for users and implementing caching using Redis. It adheres to Clean Architecture principles, utilizes GRPC for communication, and uses Swagger for API documentation.
-
-### Additional Features and Libraries
-
-- GORM: Utilized for ORM-based database interactions, enhancing the modularity of database code.
-- Viper: Used for environment variable loading and configuration management, enhancing flexibility.
-- Clean Code Architecture: Implemented to achieve separation of concerns and maintainability.
-- Loose Coupling: Designed for independent development, testing, and deployment of microservices.
-- Swagger: Used for API documentation, providing an interactive interface for users and developers.
 
 ## Microservice 2: Parallel Methods
 
@@ -29,10 +36,6 @@ Microservice 1 is responsible for handling CRUD (Create, Read, Update, Delete) o
 
 Microservice 2 exposes two methods that demonstrate parallelism and concurrency. Method 1 processes requests sequentially, while Method 2 processes requests in parallel. Clean Architecture and GRPC are used for communication.
 
-### Additional Features and Libraries
-
-- GRPC: Employed for inter-microservice communication due to its lightweight and efficient protocol.
-- Wire: Leveraged for dependency injection, enhancing dependency management.
 
 ## API Gateway
 

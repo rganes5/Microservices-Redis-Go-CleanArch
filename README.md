@@ -124,24 +124,43 @@ Here are the extracted endpoints for each group defined in the API:
   - Method: POST
   - Endpoint: `/user/register`
   - Handler: `authHandler.Register`
+  - Data:
+  {
+  "email": "string",
+  "firstname": "string",
+  "lastname": "string",
+  "phone": "string"
+  }
   - Description: Registers a new user by accepting user details (name, email, etc.) as input and stores the information in the PostgreSQL database. It also caches the user details in Redis for faster retrieval.
 
 - **Get User by ID**
   - Method: GET
   - Endpoint: `/user/getuser/:user_id`
   - Handler: `authHandler.GetUser`
+  - Data:
+  Pass user_id through Params
   - Description: Retrieves user details by accepting a user ID as input. It first checks if the user exists in the Redis cache. If found, it returns the user details from the cache. If not found, it fetches the user details from the PostgreSQL database and caches them in Redis.
 
 - **Update User**
   - Method: PATCH
   - Endpoint: `/user/update`
   - Handler: `authHandler.UpdateUser`
+  Data:
+  {
+  "email": "string",
+  "firstname": "string",
+  "id": int32,
+  "lastname": "string",
+  "phone": "string"
+  }
   - Description: Updates user information by accepting a user ID and updated details as input. It updates the user information in the PostgreSQL database and also updates the user details in the Redis cache if the user exists.
 
 - **Delete User**
   - Method: DELETE
   - Endpoint: `/user/delete/:user_id`
   - Handler: `authHandler.DeleteUser`
+  - Data:
+  Pass user_id through Params
   - Description: Deletes a user by accepting a user ID as input. It removes the user from the PostgreSQL database and also removes the user details from the Redis cache if the user exists.
 
 ### Parallel Methods
@@ -150,6 +169,11 @@ Here are the extracted endpoints for each group defined in the API:
   - Method: POST
   - Endpoint: `/user/method`
   - Handler: `methodHandler.MethodsHandler`
+  - Data:
+  {
+  "method": 0,
+  "waitTime": 0
+  }
   - Description: Executes parallel methods based on the input provided. Requests for Method 1 are processed sequentially, while requests for Method 2 are processed in parallel. Each method checks the number of users in the database, waits for a specified time, and returns a list of users' names.
 
 ## Contact Information
